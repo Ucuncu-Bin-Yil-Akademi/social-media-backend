@@ -14,6 +14,7 @@ const userDto = (contentParam) => {
     joinedGroups,
     createdContents,
     publications,
+    createdAt,
   } = contentParam;
   return {
     _id,
@@ -30,6 +31,7 @@ const userDto = (contentParam) => {
     coverPhoto,
     createdContents,
     publications,
+    createdAt,
   };
 };
 

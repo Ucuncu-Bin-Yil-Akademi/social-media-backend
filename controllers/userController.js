@@ -93,8 +93,11 @@ const controller = {
     try {
       const user = await Users.findOne({ username })
         .populate("publications", "content images likes createdAt")
-        .populate("userFollowers", "name lastname username")
-        .populate("following", "name lastname username")
+        .populate(
+          "userFollowers",
+          "name lastname username userFollowers following"
+        )
+        .populate("following", "name lastname username userFollowers following")
         .exec()
         .catch((err) => {
           console.log("hataaaaa", err);
