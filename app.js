@@ -44,6 +44,6 @@ app.use(function (req, res, next) {
   next(createError(404, "Not Found " + req.originalUrl));
 });
 
-server.listen(3000, () => console.log("Server is running"));
+server.listen(3001, () => console.log("Server is running"));
 
 module.exports = app;

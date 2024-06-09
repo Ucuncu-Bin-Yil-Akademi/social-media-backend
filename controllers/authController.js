@@ -57,7 +57,7 @@ const controller = {
 
   async register(req, res, next) {
     try {
-      const { name, lastname, username, email, password } = req.body;
+      const { name, lastname, username, email, password, bio } = req.body;
 
       const userExistsMail = await User.findOne({ email });
       const userExistUserName = await User.findOne({ username });
@@ -69,7 +69,7 @@ const controller = {
         return res.status(400).send({ error: "Username already exists" });
       }
 
-      const user = new User({ name, lastname, username, email, password });
+      const user = new User({ name, lastname, username, email, password, bio });
       await user.save();
 
       const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
