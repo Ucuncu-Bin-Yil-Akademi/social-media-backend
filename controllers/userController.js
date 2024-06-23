@@ -8,7 +8,7 @@ const controller = {
   async getUsers(req, res, next) {
     try {
       const page = req.query.page || 1;
-      const limit = 10;
+      const limit = 5;
 
       const currentUserId = req?.user?._id;
 
@@ -117,7 +117,8 @@ const controller = {
   },
 
   async updateUser(req, res) {
-    const { username, name, lastname, currentPassword, password } = req.body;
+    const { username, name, lastname, currentPassword, password, bio } =
+      req.body;
     let newUserInfo = {};
 
     const currentUserId = req?.user?._id;
@@ -151,6 +152,7 @@ const controller = {
 
       newUserInfo.name = name;
       newUserInfo.lastname = lastname;
+      newUserInfo.bio = bio;
 
       if (currentPassword && password) {
         const isPasswordMatch = await bcrypt.compare(

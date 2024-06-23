@@ -45,6 +45,7 @@ const controller = {
         lastname: user.lastname,
         username: user.username,
         _id: user._id,
+        bio: user.bio,
       });
     } catch (err) {
       console.log(err.message);
@@ -80,6 +81,7 @@ const controller = {
           lastname: user.lastname,
           username: user.username,
           _id: user._id,
+          bio: user.bio,
         },
       });
     } catch (err) {
